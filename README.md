@@ -1,2 +1,3 @@
-# simplemooc
-Plataforma simples de ensino a distância.
+# SimpleMOOC
+
+Plataforma simples de ensino a distância com foco em cursos abertos. 

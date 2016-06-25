@@ -65,3 +65,4 @@ target/
 __pycache__
 *.pyc
 simplemooc/static/lib
+

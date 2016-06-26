@@ -65,4 +65,4 @@ target/
 __pycache__
 *.pyc
 simplemooc/static/lib
-
+simplemooc/media

@@ -65,4 +65,5 @@ target/
 __pycache__
 *.pyc
 simplemooc/static/lib
+db.sqlite3
 simplemooc/media

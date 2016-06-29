@@ -1,5 +1,5 @@
 from django.test import TestCase
-from django.contrib.auth.models import User
+from simplemooc.accounts.models import User
 from django.shortcuts import resolve_url as r
 
 

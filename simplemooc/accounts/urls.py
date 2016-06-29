@@ -15,4 +15,11 @@ urlpatterns = [
     url(r'^cadastre-se/$', views.register, name='register'),
     url(r'^editar/$', views.edit, name='edit'),
     url(r'^editar-senha/$', views.edit_password, name='edit_password'),
+
+    url(r'^nova-senha/$', accounts_views.password_reset,
+        name='password_reset'),
+
+    url(r'^confirmar-nova-senha/(?P<key>\w+)/$',
+        accounts_views.password_reset_confirm,
+        name='password_reset_confirm')
 ]

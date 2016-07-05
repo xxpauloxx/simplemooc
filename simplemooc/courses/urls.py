@@ -14,4 +14,16 @@ urlpatterns = [
 
     url(r'^(?P<slug>[\w_-]+)/anuncios/$', 
         courses_views.announcements, name='announcements'),
+
+    url(r'^(?P<slug>[\w_-]+)/anuncios/(?P<pk>\d+)/$', 
+        courses_views.show_announcement, name='show_announcement'),
+
+    url(r'^(?P<slug>[\w_-]+)/aulas/$', courses_views.lessons, name='lessons'),
+    
+    url(r'^(?P<slug>[\w_-]+)/aulas/(?P<pk>\d+)/$', 
+        courses_views.lesson, name='lesson'),
+
+    url(r'^(?P<slug>[\w_-]+)/materiais/(?P<pk>\d+)/$', 
+        courses_views.material, name='material'),
+
 ]

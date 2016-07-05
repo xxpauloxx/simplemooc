@@ -10,7 +10,6 @@ User = get_user_model()
 
 
 class PasswordResetForm(forms.Form):
-
     email = forms.EmailField(label='E-mail')
 
     def clean_email(self):
@@ -35,7 +34,6 @@ class PasswordResetForm(forms.Form):
 
 
 class RegisterForm(forms.ModelForm):
-
     password1 = forms.CharField(label='Senha', widget=forms.PasswordInput)
     password2 = forms.CharField(
         label='Confirmação de Senha', widget=forms.PasswordInput
@@ -61,7 +59,6 @@ class RegisterForm(forms.ModelForm):
 
 
 class EditAccountForm(forms.ModelForm):
-
     class Meta:
         model = User
         fields = ['username', 'email', 'name']

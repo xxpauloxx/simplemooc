@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 
+{% load courses_tags %}
+
 {% block content %}
+{% load_my_courses user as enrollments %}
 <div class="pure-g-r content-ribbon">
     <div class="pure-u-1">
         <ul class="breadcrumb">
@@ -11,21 +14,59 @@
     </div>
     <div class="pure-u-1-3">
         <div class="pure-menu pure-menu-open">
-            <a class="pure-menu-heading">Meus Cursos</a>
             <ul>
-                <li><a href="#">Curso 1</a></li>
-                <li><a href="#">Curso 2</a></li>
-                <li class="pure-menu-heading">Minha Conta</li>
-                <li><a href="{% url 'accounts:edit' %}">Editar Conta</a></li>
-                <li><a href="{% url 'accounts:edit_password' %}">Editar Senha</a></li>
+                <li class="pure-menu-heading">
+                    Bem-vindo, {{ user }}
+                </li>
+                {% block menu_options %}
+                <li class="pure-menu-heading">Cursos</li>
+                {% for enrollment in enrollments %}
+                <li>
+                    <a href="{% url 'courses:announcements' enrollment.course.slug %}">
+                    <i class="fa fa-book"></i>
+                    {{ enrollment.course }}
+                    </a>
+                </li>
+                {% empty %}
+                <li>Nenhum curso encontrado</li>
+                {% endfor %}
+                <li class="pure-menu-heading">Configurações de Conta</li>
+                <li>
+                    <a href="{% url 'accounts:edit' %}">
+                    <i class="fa fa-cog"></i>
+                    Editar Informações
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'accounts:edit_password' %}">
+                    <i class="fa fa-lock"></i>
+                    Editar Senha
+                    </a>
+                </li>
+                {% endblock %}
             </ul>
         </div>
     </div>
     <div class="pure-u-2-3">
         <div class="inner">
             {% block dashboard_content %}
-            <p><strong>Usuário</strong>: {{ user }}</p>
-            <p><strong>E-mail</strong>: {{ user.email }}</p>
+            <h2>Meus Cursos</h2>
+            {% for enrollment in enrollments %}
+            <div class="well">
+                <h3>{{ enrollment.course }}
+                ({{ enrollment.course.start_date|date:'d/m/Y'|default:'Sem data' }})
+                </h3>
+                {{ enrollment.course.description|linebreaks }}
+                <div class="pure-controls">
+                    <a href="{% url 'courses:announcements' enrollment.course.slug %}" class="pure-button pure-button-primary">Acessar</a>
+                    <a href="{% url 'courses:undo_enrollment' enrollment.course.slug %}" class="pure-button button-error">Cancelar</a>
+                </div>
+            </div>
+            {% empty %}
+            <aside class="pure-u-1">
+                <p>Nenhum curso inscrito</p>
+            </aside>
+            {% endfor %}
             {% endblock %}
         </div>
     </div>

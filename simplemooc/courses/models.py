@@ -19,7 +19,7 @@ class Course(models.Model):
         'Data de Início', null=True, blank=True)
 
     image = models.ImageField(
-        upload_to='courses/images', verbose_name='Imagem',
+        upload_to='courses/images', verbose_name='Imagem', 
         null=True, blank=True)
 
     created_at = models.DateTimeField('Criado em', auto_now_add=True)
@@ -63,6 +63,9 @@ class Enrollment(models.Model):
     def active(self):
         self.status = 1
         self.save()
+
+    def is_approved(self):
+        return self.status == 1
 
     class Meta:
         verbose_name = 'Inscrição'

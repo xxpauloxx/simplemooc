@@ -2,7 +2,7 @@ from django.test import TestCase
 from django.shortcuts import resolve_url as r
 
 
-class TestCourseDetails(TestCase):
+class CourseDetailsTestCase(TestCase):
     fixtures = ['courses.json']
 
     def setUp(self):

@@ -2,7 +2,7 @@ from django.test import TestCase
 from django.shortcuts import resolve_url as r
 
 
-class TestLogin(TestCase):
+class LoginTestCase(TestCase):
     def setUp(self):
         self.response = self.client.get(r('accounts:login'))
 

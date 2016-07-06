@@ -2,7 +2,7 @@ from django.test import TestCase
 from django.shortcuts import resolve_url as r
 
 
-class TestContact(TestCase):
+class ContactTestCase(TestCase):
     def setUp(self):
         self.response = self.client.get(r('core:contact'))
 

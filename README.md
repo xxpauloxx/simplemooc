@@ -5,8 +5,7 @@
 Plataforma de ensino a distância com foco em cursos abertos utilizando Django para o seu 
 desenvolvimento. O projeto foi concluído no curso de "Python 3 na Web com Django".
 
-Python 3.5.1
-Django 1.9.6
+Foi utilizado neste projeto Python 3.5.1 e Django 1.9.6.
 
 ### Instalação no Linux
 Antes de executar o script abaixo, instale a última versão do Pyenv.

@@ -7,8 +7,10 @@ desenvolvimento. O projeto foi concluído no curso de "Python 3 na Web com Djang
 
 Foi utilizado neste projeto Python 3.5.1 e Django 1.9.6.
 
-### Instalação no Linux
-Antes de executar o script abaixo, instale a última versão do Pyenv.
+### Como desenvolver?
+
+1. Instale o [![Pyenv](https://github.com/yyuu/pyenv-installer)](https://github.com/yyuu/pyenv-installer).
+2. Utilize o script abaixo para finalizar a criação do ambiente.
 
 ```bash
 git clone https://github.com/paulopinda/simplemooc.git
@@ -18,3 +20,5 @@ source .venv/bin/activate
 python manage.py test 
 python manage.py runserver
 ```
+
+### Como fazer o deploy?

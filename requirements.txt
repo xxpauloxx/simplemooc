@@ -1,2 +1,15 @@
+dj-database-url==0.4.1
+dj-static==0.0.6
 Django==1.9.6
+django-taggit==0.20.1
+django-toolbelt==0.0.1
+gunicorn==19.6.0
+mock==2.0.0
+model-mommy==1.2.6
+pbr==1.10.0
 Pillow==3.2.0
+psycopg2==2.6.1
+pystache==0.5.4
+six==1.10.0
+static==1.1.1
+static3==0.7.0

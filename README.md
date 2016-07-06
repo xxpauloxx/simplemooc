@@ -9,7 +9,7 @@ Foi utilizado neste projeto Python 3.5.1 e Django 1.9.6.
 
 ### Como desenvolver?
 
-1. Instale o [![Pyenv](https://github.com/yyuu/pyenv-installer)](https://github.com/yyuu/pyenv-installer).
+1. Instale o [Pyenv](https://github.com/yyuu/pyenv-installer).
 2. Utilize o script abaixo para finalizar a criação do ambiente.
 
 ```bash

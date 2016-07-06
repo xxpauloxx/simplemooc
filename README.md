@@ -11,11 +11,11 @@ desenvolvimento. O projeto foi realizado no curso de "Python 3 na Web com Django
 
 Antes de executar o script abaixo, instale a última versão do Pyenv.
 
-```
+```bash
 git clone https://github.com/paulopinda/simplemooc.git
 cd simplemooc 
 ./scripts/setup.sh 
 source .venv/bin/activate
-./manage.py test 
-./manage.py runserver
+python manage.py test 
+python manage.py runserver
 ```

@@ -1,8 +1,8 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
-from .models import Course, Enrollment, Announcement, Lesson, Material
+from .models import Course, Enrollment, Lesson, Material
 from .forms import ContactCourse, CommentForm
 
 from .decorators import enrollment_required
@@ -41,7 +41,7 @@ def enrollment(request, slug):
     course = get_object_or_404(Course, slug=slug)
     enrollment, created = Enrollment.objects.get_or_create(
         user=request.user, course=course)
-    
+
     if created:
         messages.success(request, 'Você foi inscrito no curso com sucesso')
     else:
@@ -53,10 +53,10 @@ def enrollment(request, slug):
 @login_required
 def undo_enrollment(request, slug):
     course = get_object_or_404(Course, slug=slug)
-    
+
     enrollment = get_object_or_404(
         Enrollment, user=request.user, course=course)
-    
+
     if request.method == 'POST':
         enrollment.delete()
         messages.success(request, 'Sua inscrição foi cancelada com sucesso')
@@ -64,13 +64,13 @@ def undo_enrollment(request, slug):
         return redirect('accounts:dashboard')
 
     template = 'courses/undo_enrollment.html'
-    
+
     context = {
         'enrollment': enrollment,
         'course': course,
     }
 
-    return render(request, template, context)    
+    return render(request, template, context)
 
 
 @login_required
@@ -91,7 +91,7 @@ def announcements(request, slug):
     context = {
         'course': course
     }
-    
+
     return render(request, template, context)
 
 
@@ -101,7 +101,7 @@ def show_announcement(request, slug, pk):
     course = request.course
     announcement = get_object_or_404(course.announcements.all(), pk=pk)
     form = CommentForm(request.POST or None)
-    
+
     if form.is_valid():
         comment = form.save(commit=False)
         comment.user = request.user
@@ -126,7 +126,7 @@ def lessons(request, slug):
     course = request.course
     template = 'courses/lessons.html'
     lessons = course.release_lessons()
-    
+
     if request.user.is_staff:
         lessons = course.lessons.all()
 
@@ -143,11 +143,11 @@ def lessons(request, slug):
 def lesson(request, slug, pk):
     course = request.course
     lesson = get_object_or_404(Lesson, pk=pk, course=course)
-    
+
     if not request.user.is_staff and not lesson.is_available():
         messages.error(request, 'Esta aula não está disponível')
         return redirect('courses:lessons', slug=course.slug)
-    
+
     template = 'courses/lesson.html'
     context = {
         'course': course,

@@ -153,13 +153,8 @@ ALLOWED_HOSTS = ['*']
 STATIC_ROOT = 'staticfiles'
 STATIC_URL = '/static/'
 
-try:
-    from simplemooc.local_settings import *
-except ImportError:
-    pass
 
-
-if 'runserver' in sys.argv:
+if 'runserver' or 'test' in sys.argv:
     DEBUG = True
 
     BASE_DIR = os.path.dirname(os.path.dirname(__file__))

@@ -1,8 +1,8 @@
+from simplemooc.courses.models import Enrollment
 from django.template import Library
 
 register = Library()
 
-from simplemooc.courses.models import Enrollment
 
 @register.inclusion_tag('courses/templatetags/my_courses.html')
 def my_courses(user):
@@ -11,6 +11,7 @@ def my_courses(user):
         'enrollments': enrollments
     }
     return context
+
 
 @register.assignment_tag
 def load_my_courses(user):

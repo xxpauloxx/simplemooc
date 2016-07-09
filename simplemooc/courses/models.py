@@ -17,12 +17,13 @@ class Course(models.Model):
     name = models.CharField('Nome', max_length=100)
     slug = models.SlugField('Atalho')
     description = models.TextField('Descrição', blank=True)
+    about = models.TextField('Sobre o Curso', blank=True)
 
     start_date = models.DateField(
         'Data de Início', null=True, blank=True)
 
     image = models.ImageField(
-        upload_to='courses/images', verbose_name='Imagem', 
+        upload_to='courses/images', verbose_name='Imagem',
         null=True, blank=True)
 
     created_at = models.DateTimeField('Criado em', auto_now_add=True)
@@ -36,6 +37,10 @@ class Course(models.Model):
     @models.permalink
     def get_absolute_url(self):
         return ('courses:details', (), {'slug': self.slug})
+
+    def release_lessons(self):
+        today = timezone.now().date()
+        return self.lessons.filter(release_date__gte=today)
 
     class Meta:
         verbose_name = 'Curso'
@@ -125,7 +130,6 @@ class Enrollment(models.Model):
 
 
 class Announcement(models.Model):
-
     course = models.ForeignKey(
         Course, verbose_name='Curso', related_name='announcements'
     )
@@ -145,7 +149,6 @@ class Announcement(models.Model):
 
 
 class Comment(models.Model):
-
     announcement = models.ForeignKey(
         Announcement, verbose_name='Anúncio', related_name='comments')
 
@@ -164,7 +167,7 @@ class Comment(models.Model):
 def post_save_announcement(instance, created, **kwargs):
     if created:
         subject = instance.title
-        
+
         context = {
             'announcement': instance
         }

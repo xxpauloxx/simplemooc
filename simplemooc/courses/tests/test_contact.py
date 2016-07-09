@@ -17,7 +17,7 @@ class ContactTestCase(TestCase):
     def test_contact_form_error(self):
         data = {'name': 'Fulano de Tal', 'email': '', 'message': ''}
         client = Client()
-        
+
         path = reverse('courses:details', args=[self.course.slug])
         response = client.post(path, data)
 
@@ -29,8 +29,8 @@ class ContactTestCase(TestCase):
 
     def test_contact_form_success(self):
         data = {
-            'name': 'Fulano de Tal', 
-            'email': 'admin@admin.com', 
+            'name': 'Fulano de Tal',
+            'email': 'admin@admin.com',
             'message': 'Oi'
         }
 

@@ -17,6 +17,7 @@
         <ul>
             <li class="pure-menu-selected"><a href="{% url 'core:home' %}">Início</a></li>
             <li><a href="{% url 'courses:index' %}">Cursos</a></li>
+            <li><a href="{% url 'forum:index' %}">Fórum</a></li>
             <li><a href="{% url 'core:contact' %}">Contato</a></li>
             {% if user.is_authenticated %}
             <li><a href="{% url 'accounts:dashboard' %}">Painel</a></li>
@@ -42,6 +43,10 @@
         Simple MOOC - Uma simples plataforma de ensino a distância
     </div>
 </div>
+
 <script src="{% static 'js/yui-min.js' %}"></script>
+<script src="{% static 'js/jquery.min.js' %}"></script>
+
+{% block scripts %}{% endblock %}
 </body>
 </html>

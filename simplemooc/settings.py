@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 
 import os
+import sys
+import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -138,11 +140,8 @@ AUTH_USER_MODEL = 'accounts.User'
 
 
 # Heroku settings
-
-import dj_database_url
-
 DATABASES = {
-    'default':  dj_database_url.config(),
+    'default': dj_database_url.config(),
 }
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
@@ -159,19 +158,15 @@ try:
 except ImportError:
     pass
 
-"""
-# Settings to local
-DEBUG = True
 
-TEMPLATE_DEBUG = True
+if 'runserver' in sys.argv:
+    DEBUG = True
 
-import os
-BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+    BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
     }
-}
-"""

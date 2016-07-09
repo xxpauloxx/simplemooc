@@ -1,5 +1,7 @@
 from django.contrib import admin
-from .models import Thread, Reply
+
+from .models import Thread
+from .models import Reply
 
 
 class ThreadAdmin(admin.ModelAdmin):

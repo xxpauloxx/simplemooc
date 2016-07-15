@@ -2,7 +2,7 @@
 [![Build Status](https://travis-ci.org/paulopinda/simplemooc.svg?branch=master)](https://travis-ci.org/paulopinda/simplemooc)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/19176ed01baa477b9221033f85eadfa6)](https://www.codacy.com/app/paulo-pinda/simplemooc?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=paulopinda/simplemooc&amp;utm_campaign=Badge_Grade)
 
-Plataforma de ensino a distância com foco em cursos abertos utilizando embed videos. O projeto foi concluído no curso de "Python 3 na Web com Django" e foi utilizado neste projeto Python 3.5.1 e Django 1.9.6, diferente do curso original, na qual usou outras versões de Python e Django.
+Plataforma de ensino a distância com foco em cursos abertos utilizando embed videos. O projeto é basicamente um painel de controle da instituição onde pode ser cadastrado cursos e aulas em videos podendo ser do youtube ou outros que geram código embed e um painel do aluno para interagir, com fórum e as aulas.
 
 ### Como desenvolver?
 

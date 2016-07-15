@@ -6,8 +6,8 @@ Plataforma de ensino a distância com foco em cursos abertos utilizando embed vi
 
 ### Como desenvolver?
 
-1. Instale o [Pyenv](https://github.com/yyuu/pyenv-installer).
-2. Utilize o script abaixo para finalizar a criação do ambiente.
+1. Instale o PyEnv utilizando a ferramenta [Pyenv-Installer](https://github.com/yyuu/pyenv-installer).
+2. Utilize os seguintes passos abaixo para a configuração do ambiente e execução.
 
 ```bash
 git clone https://github.com/paulopinda/simplemooc.git

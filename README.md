@@ -11,11 +11,16 @@ Plataforma de ensino a distância com foco em cursos abertos utilizando embed vi
 
 ```bash
 git clone https://github.com/paulopinda/simplemooc.git
-cd simplemooc 
-./scripts/setup.sh 
+cd simplemooc
+./scripts/setup.sh
 source .venv/bin/activate
-python manage.py test 
-python manage.py migrate 
-python manage.py createsuperuser 
+pip install -r requirements.txt
+python manage.py test
+python manage.py migrate
+python manage.py createsuperuser
 python manage.py runserver
 ```
+
+### Algum problema? Por favor me avise.
+#### Paulo Roberto
+paulo.pinda@gmail.com

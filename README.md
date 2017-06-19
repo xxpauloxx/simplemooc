@@ -20,7 +20,3 @@ python manage.py migrate
 python manage.py createsuperuser
 python manage.py runserver
 ```
-
-### Algum problema? Por favor me avise.
-#### Paulo Roberto
-paulo.pinda@gmail.com
